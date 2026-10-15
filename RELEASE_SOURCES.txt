@@ -1,0 +1,31 @@
+mdownYTB v0.2.2 Windows x64 release - third-party source and replacement information
+
+This release dynamically links Qt 6.11.0 and includes MinGW runtime DLLs. The
+application source corresponding to this executable is published at:
+https://github.com/treekeichan/mdownYTB/tree/v0.2.2
+
+Qt 6.11.0 source (exact upstream release archive):
+https://download.qt.io/official_releases/qt/6.11/6.11.0/single/qt-everywhere-src-6.11.0.tar.xz
+Qt licensing and LGPL notices:
+https://www.qt.io/development/open-source-lgpl-obligations
+https://doc.qt.io/qt-6/lgpl.html
+
+The Qt DLLs are unmodified shared libraries. Users may replace the Qt DLLs
+with compatible modified versions and run this application against them. The
+application does not prevent replacement or reverse engineering for debugging
+modifications to the LGPL libraries. The corresponding application source is
+available at the GitHub tag above.
+
+MinGW-w64 / GCC 13.1.0 runtime sources:
+https://gcc.gnu.org/pub/gcc/releases/gcc-13.1.0/
+https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/
+MinGW-w64 project and license information:
+https://www.mingw-w64.org/
+https://github.com/mingw-w64/mingw-w64
+
+The included GCC runtime and winpthreads license texts are in this directory.
+No yt-dlp, FFmpeg, FFprobe, Node.js, browser data, cookies, or user settings are
+included in this release archive. The optional fetch-tools.ps1 downloads
+third-party tools directly from their respective upstream publishers; users
+should review those publishers' license terms and notices before redistributing
+the downloaded tools.

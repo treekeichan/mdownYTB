@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     app.setOrganizationName(QStringLiteral("mdownYTB"));
     app.setApplicationName(QStringLiteral("mdownYTB"));
-    app.setApplicationVersion(QStringLiteral("0.2.1"));
+    app.setApplicationVersion(QStringLiteral("0.2.2"));
     app.setStyle(QStyleFactory::create(QStringLiteral("Fusion")));
     if (QApplication::platformName() == QStringLiteral("offscreen")) {
         QFontDatabase::addApplicationFont(QStringLiteral("C:/Windows/Fonts/msyh.ttc"));

@@ -1,8 +1,10 @@
-# 第三方组件
+# Third-party components
 
-- Qt 6：本机 C:/Qt/6.11.0/mingw_64，使用动态库。分发前应按实际 Qt 安装许可履行 LGPL/GPL 或商业许可要求，包括许可文本、可替换动态库及对应源码获取信息。https://www.qt.io/licensing/
-- yt-dlp：官方 Windows 独立包，https://github.com/yt-dlp/yt-dlp/releases 。项目采用 Unlicense；打包依赖的许可另见官方 THIRD_PARTY_LICENSES.txt。https://github.com/yt-dlp/yt-dlp/blob/master/THIRD_PARTY_LICENSES.txt
-- FFmpeg / FFprobe：来自 FFmpeg 官网列出的 Gyan Windows essentials 构建，https://www.gyan.dev/ffmpeg/builds/ 。具体配置、版本和许可证以 `ffmpeg -version` 与随构建分发的 LICENSE 文件为准；当前构建可能适用 GPL。源码与构建信息：https://www.gyan.dev/ffmpeg/builds/ 、https://ffmpeg.org/legal.html 。
-- Node.js：使用本机已安装运行时，不随应用复制。https://nodejs.org/ 、https://github.com/nodejs/node/blob/main/LICENSE
+- **Qt 6.11.0**: dynamically linked from the locally installed Qt MinGW build. Windows release packages include the Qt DLLs and Qt license text. Qt is available under LGPL/GPL or commercial terms; see the exact obligations and source/relinking information in `licenses/RELEASE_SOURCES.txt`. https://www.qt.io/development/open-source-lgpl-obligations
+- **MinGW runtime**: release packages include GCC runtime DLLs and winpthreads. Corresponding license texts and upstream source locations are included under `licenses/`.
+- **yt-dlp, FFmpeg, FFprobe**: not included in the public release archive. The optional `fetch-tools.ps1` downloads them from their upstream publishers into a user-selected directory and checks upstream checksums. yt-dlp is distributed under Unlicense; FFmpeg builds may use GPL components. Review each publisher's current license and notices before redistributing downloaded binaries. https://github.com/yt-dlp/yt-dlp/releases · https://www.gyan.dev/ffmpeg/builds/ · https://ffmpeg.org/legal.html
+- **Node.js**: not included; install Node.js 22+ separately if needed. https://nodejs.org/
 
-当前 dist 目录为本机验证包，尚未完成对外发布所需的全部许可材料整理、签名及干净机器验证。
+The release ZIP contains only the application, dynamically linked Qt/runtime files, documentation, license texts, and the dependency-fetch script. It excludes tools, browser data, Cookies, user configuration, logs, and downloaded media. See `licenses/RELEASE_SOURCES.txt` for exact source links and Qt library replacement information.
+
+The `dist/` directory created by the ordinary developer packaging mode is a local test package and may contain third-party executables from `tools/`; do not treat it as the public release package.

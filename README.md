@@ -13,20 +13,24 @@
 
 ## 编译与运行
 
-本机已验证工具链：Qt 6.11.0 mingw_64、MinGW 13.1、CMake 3.30.5。
+本机已验证工具链：Qt 6.11.0 mingw_64、MinGW 13.1、CMake 3.30.5。当前版本 v0.2.2。
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1 -Package
-.\dist\mdownYTB-v0.2.1\mdownYTB.exe
+.\dist\mdownYTB-v0.2.2\mdownYTB.exe
 ```
 
 也可使用 Qt Creator 打开 CMakeLists.txt，选择对应 Qt 6 MinGW Kit。不要混用 Qt 5 MSVC 和 Qt 6 MinGW 库。
 
 ## 下载依赖
 
-将 yt-dlp.exe、ffmpeg.exe、ffprobe.exe 放入项目 tools 目录；发布包使用其自身 tools 目录。也可在界面“设置与依赖”中手动指定路径。Node.js 22+ 从 PATH 自动识别。官方 yt-dlp Windows 独立包包含 EJS；其他安装方式请按官方文档配置：https://github.com/yt-dlp/yt-dlp/wiki/EJS 。
+将 yt-dlp.exe、ffmpeg.exe、ffprobe.exe 放入项目 tools 目录；也可在界面“设置与依赖”中手动指定路径。Node.js 22+ 从 PATH 自动识别。官方 yt-dlp Windows 独立包包含 EJS；其他安装方式请按官方文档配置：https://github.com/yt-dlp/yt-dlp/wiki/EJS 。
 
-可运行 `powershell -ExecutionPolicy Bypass -File .\scripts\fetch-tools.ps1` 下载并按发布方清单校验工具；已有文件默认保留，`-Force` 用于手动更新。下载和校验都成功后才替换 yt-dlp 引擎。
+源码工程可运行 `powershell -ExecutionPolicy Bypass -File .\scripts\fetch-tools.ps1` 下载并按发布方清单校验工具；已有文件默认保留，`-Force` 用于手动更新。下载和校验都成功后才替换 yt-dlp 引擎。
+
+### Windows 便携版
+
+从 GitHub Releases 下载 `mdownYTB-v0.2.2-windows-x64.zip`，解压后运行 `mdownYTB.exe`。发布压缩包不内置下载引擎；在解压目录打开 PowerShell，执行 `powershell -ExecutionPolicy Bypass -File .\fetch-tools.ps1 -TargetDirectory .\tools`，即可把 yt-dlp、FFmpeg 和 FFprobe 下载到此目录并校验。Node.js 22+ 需单独安装。第三方源码与许可说明随包放在 `licenses` 目录。
 
 官方来源及许可见 THIRD_PARTY.md。工具更新后建议重新运行测试并验证真实链接；软件不会自动下载或执行更新。
 

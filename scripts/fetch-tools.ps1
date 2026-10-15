@@ -1,7 +1,13 @@
-param([switch]$Force)
+param([switch]$Force, [string]$TargetDirectory)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
-$tools = Join-Path $projectRoot 'tools'
+if ([string]::IsNullOrWhiteSpace($TargetDirectory)) {
+    $tools = Join-Path $projectRoot 'tools'
+} elseif ([IO.Path]::IsPathRooted($TargetDirectory)) {
+    $tools = $TargetDirectory
+} else {
+    $tools = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot $TargetDirectory))
+}
 New-Item -ItemType Directory -Path $tools -Force | Out-Null
 function Get-VerifiedFile([string]$Uri, [string]$ChecksumUri, [string]$Name, [switch]$Manifest) {
     $target = Join-Path $tools $Name
