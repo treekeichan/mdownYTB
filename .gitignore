@@ -1,0 +1,27 @@
+/build/
+/dist/
+/tools/*
+!/tools/README.md
+*.user
+/smoke-window.png
+
+# Local sessions, settings, and generated data
+cookies.txt
+*cookies*.txt
+tasks.json
+settings.ini
+*.log
+*.part
+*.ytdl
+.env
+.env.*
+
+# Downloaded media and editor files
+*.mp4
+*.mkv
+*.m4a
+*.mp3
+*.webm
+.vs/
+.vscode/
+*.user.*
